@@ -21,12 +21,12 @@ def robot_program():
 
     sequence.append(Ptp(goal=home))
 
-    # create pose mgs list from yaml
+    # create pose mgs list from yaml (for toolpath file)
     poses_list = poses_list_from_yaml(
         # here is where you use for indicating a saved yaml file
         '/dev_ws/src/ur10e_examples/toolpaths/test2.yaml')
 
-    # # alternative poses from ros param server
+    # # alternative poses from ros param server (for connecting 2 cps)
     # if rospy.has_param('gh_poses'):
     #     poses_list = rospy.get_param('gh_poses')
     # else:
@@ -38,8 +38,19 @@ def robot_program():
     # publish the poses to rviz for preview
     mgi.publish_pose_array(poses)
 
+    # for p in poses:
+    #     sequence.append(Lin(goal=p))
+
+# added a control for speed
     for p in poses:
-        sequence.append(Lin(goal=p))
+        sequence.append(
+            Lin(goal=p,
+                vel_scale=0.05,
+                acc_scale=0.005,
+                )
+        )
+
+    sequence.append(Ptp(goal=home))
 
     success, plan = mgi.sequencer.plan(sequence)[:2]
 
