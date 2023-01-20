@@ -38,8 +38,9 @@ start_srv_req.rotational_distance = 0.0
 # start_srv_req.tsdf_params.voxel_length = 0.0005
 # start_srv_req.tsdf_params.sdf_trunc = 0.001
 start_srv_req.live = False
+# original voxel_length .001
 start_srv_req.tsdf_params.voxel_length = 0.001
-start_srv_req.tsdf_params.sdf_trunc = 0.004
+start_srv_req.tsdf_params.sdf_trunc = 0.002
 start_srv_req.tsdf_params.min_box_values = Vector3(x=0.0, y=0.0, z=0.0)
 start_srv_req.tsdf_params.max_box_values = Vector3(x=0.0, y=0.0, z=0.0)
 start_srv_req.rgbd_params.depth_scale = 1000
@@ -47,7 +48,7 @@ start_srv_req.rgbd_params.depth_trunc = 0.15
 start_srv_req.rgbd_params.convert_rgb_to_intensity = False
 
 stop_srv_req = StopReconstructionRequest()
-stop_srv_req.mesh_filepath = '/home/v/test.ply'
+stop_srv_req.mesh_filepath = '/home/justin/test.ply'
 
 # define speed and acceleration
 
@@ -59,8 +60,8 @@ move_acc = 0.5
 # scan_acc = 0.0002
 
 # fast scan
-scan_vel = 0.05
-scan_acc = 0.01
+scan_vel = 0.03
+scan_acc = 0.005
 
 # boolean to enable/disable reconstruction
 # for testing purposes
