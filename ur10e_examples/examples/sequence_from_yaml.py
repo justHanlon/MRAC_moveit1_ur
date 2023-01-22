@@ -24,7 +24,7 @@ def robot_program():
     # create pose mgs list from yaml (for toolpath file)
     poses_list = poses_list_from_yaml(
         # here is where you use for indicating a saved yaml file
-        '/dev_ws/src/ur10e_examples/toolpaths/test2.yaml')
+        '/dev_ws/src/ur10e_examples/toolpaths/toolpath_1.yaml')
 
     # # alternative poses from ros param server (for connecting 2 cps)
     # if rospy.has_param('gh_poses'):

@@ -18,7 +18,7 @@ from pilz_robot_program.pilz_robot_program import Lin, Ptp, Sequence
 home = (0.0, -pi/2.0, pi/2.0, -pi, -pi/2, 0)
 
 pose_list = poses_list_from_yaml(
-    '/dev_ws/src/ur10e_examples/toolpaths/scan.yaml')
+    '/dev_ws/src/ur10e_examples/toolpaths/toolpath_1.yaml')
 toolpath = [list_to_pose(pose) for pose in pose_list]
 
 # define end effector
@@ -39,8 +39,8 @@ start_srv_req.rotational_distance = 0.0
 # start_srv_req.tsdf_params.sdf_trunc = 0.001
 start_srv_req.live = False
 # original voxel_length .001
-start_srv_req.tsdf_params.voxel_length = 0.001
-start_srv_req.tsdf_params.sdf_trunc = 0.002
+start_srv_req.tsdf_params.voxel_length = 0.005
+start_srv_req.tsdf_params.sdf_trunc = 0.01
 start_srv_req.tsdf_params.min_box_values = Vector3(x=0.0, y=0.0, z=0.0)
 start_srv_req.tsdf_params.max_box_values = Vector3(x=0.0, y=0.0, z=0.0)
 start_srv_req.rgbd_params.depth_scale = 1000
@@ -60,7 +60,7 @@ move_acc = 0.5
 # scan_acc = 0.0002
 
 # fast scan
-scan_vel = 0.03
+scan_vel = 0.1
 scan_acc = 0.005
 
 # boolean to enable/disable reconstruction
