@@ -41,12 +41,13 @@ def robot_program():
     # for p in poses:
     #     sequence.append(Lin(goal=p))
 
+
 # added a control for speed
     for p in poses:
         sequence.append(
             Lin(goal=p,
-                vel_scale=0.05,
-                acc_scale=0.005,
+                vel_scale=0.1,
+                acc_scale=0.05,
                 )
         )
 
