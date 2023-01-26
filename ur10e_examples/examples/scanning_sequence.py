@@ -17,8 +17,10 @@ from pilz_robot_program.pilz_robot_program import Lin, Ptp, Sequence
 # define poses
 home = (0.0, -pi/2.0, pi/2.0, -pi, -pi/2, 0)
 
+# load toolpath
+
 pose_list = poses_list_from_yaml(
-    '/dev_ws/src/ur10e_examples/toolpaths/toolpath_1.yaml')
+    '/dev_ws/src/ur10e_examples/toolpaths/toolpath_2.yaml')
 toolpath = [list_to_pose(pose) for pose in pose_list]
 
 # define end effector
